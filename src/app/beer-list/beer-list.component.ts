@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 //import { Beer } from './Beer';
 //import { BEERS } from './mocks';
 import { BeerDataService } from '../service/beer-data.service';
+import { CartService } from '../service/cart.service';
+import { Beer } from './Beer';
 
 
 @Component({
@@ -16,7 +18,15 @@ export class BeerListComponent implements OnInit {
 
   public imgSource = "../../assets/img/pinta.png";
 
-  constructor(private beerDataService:BeerDataService) { }
+  constructor(
+    private beerDataService:BeerDataService,
+    private cartService:CartService,
+    ) { }
+
+    addCard(beer:Beer){
+      this.cartService.addToCard(beer);
+      beer.stock -= beer.quantity;
+    }
 
   public sumaBeer(cerveza){
     console.log(cerveza);
@@ -34,7 +44,12 @@ export class BeerListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cervezas = this.beerDataService.getBeers();
+    this.beerDataService.getBeers().subscribe(beers => {
+      
+      this.cervezas=beers;
+      console.log(this.cervezas);}
+      );
+    //this.cervezas = this.beerDataService.getBeers();
   }
 
 

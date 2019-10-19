@@ -9,7 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
 import { BeerDataService } from './service/beer-data.service';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { BeerDataService } from './service/beer-data.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ BeerDataService ],
   bootstrap: [AppComponent]

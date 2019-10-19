@@ -1,9 +1,12 @@
-export class Beer{
-    public name:string;
-    public description:string;
-    public precio:number;
-    public imagen:string;
-    public stock:number;
-    public oferta:boolean;
-}
+
+
+export class Beer {
+    name: string;
+    style: string;
+    price: number;
+    stock: number;
+    image: string;
+    clearance: boolean;
+    quantity: number;
+  }
 

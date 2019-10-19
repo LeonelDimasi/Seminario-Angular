@@ -15,10 +15,10 @@
                             </thead>
                             
                             <tbody>
-                                <tr [ngClass]="{fondo : cerveza.oferta}" *ngFor= "let cerveza of cervezas">
+                                <tr [ngClass]="{fondo : cerveza.clearance}" *ngFor= "let cerveza of cervezas">
                                     <td>{{cerveza.name | titlecase }}</td>
-                                    <td>{{cerveza.description}}</td>
-                                    <td>{{cerveza.precio | currency:'CAD'}}</td> 
+                                    <td>{{cerveza.style}}</td>
+                                    <td>{{cerveza.price | currency:'CAD'}}</td> 
                                     <td>
                                         <span *ngIf = "cerveza.stock < 1"> Agotado</span>
                                         <span *ngIf = "cerveza.stock > 0">{{cerveza.stock}}</span>
@@ -28,7 +28,7 @@
                                         <button [disabled]="cerveza.stock <= 0" (click)="restaBeer(cerveza)"> - </button>
                                         <input type="text" (keypress)="soloNumeros($event)" [(ngModel)]="cerveza.stock">
                                     </td>
-                                    <td><img [src]="cerveza.imagen" alt=""></td>
+                                    <td><img [src]="cerveza.image" width="50px"  alt=""></td>
                                 </tr>
                             </tbody>
                     
